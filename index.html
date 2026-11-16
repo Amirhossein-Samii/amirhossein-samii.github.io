@@ -191,6 +191,16 @@
     "scholar": ""
   },
   {
+    "title": "Predictor-Feedback CACC for Vehicular Platoons With Actuation and Communication Delays Based on a Multiple-Predecessor-Following CTH Nominal Strategy",
+    "authors": "A. Samii, D. Angelopoulos, N. Bekiaris-Liberis",
+    "venue": "IEEE Transactions on Intelligent Transportation Systems",
+    "year": 2026,
+    "type": "Journal",
+    "status": "Under review",
+    "doi": "",
+    "scholar": ""
+  },
+  {
     "title": "A Nonlinear CTH-Based Adaptive Cruise Controller With Safety and String Stability Guarantees",
     "authors": "D. Theodosis, A. Samii, N. Bekiaris-Liberis",
     "venue": "Transportation Research Part B: Methodological",
@@ -237,16 +247,6 @@
     "year": 2026,
     "type": "Conference",
     "status": "Published",
-    "doi": "",
-    "scholar": ""
-  },
-  {
-    "title": "Predictor-Feedback CACC for Vehicular Platoons With Actuation and Communication Delays Based on a Multiple-Predecessor-Following CTH Nominal Strategy",
-    "authors": "A. Samii, D. Angelopoulos, N. Bekiaris-Liberis",
-    "venue": "IEEE Transactions on Intelligent Transportation Systems",
-    "year": 2026,
-    "type": "Journal",
-    "status": "Under review",
     "doi": "",
     "scholar": ""
   },
@@ -380,15 +380,14 @@
     "doi": "",
     "scholar": ""
   }
-];
-</script><script>(() => {
+];</script><script>(() => {
   const pubList = document.getElementById('pub-list');
   const search = document.getElementById('pub-search');
   const filters = [...document.querySelectorAll('.filter')];
   const pubs = window.PUBLICATIONS || [];
-const PDF_FILES = {"Predictor-Feedback CACC for Vehicular Platoons With Actuation and Communication Delays Based on a Multiple-Predecessor-Following CTH Nominal Strategy": "2604.05667v1.pdf", "A Nonlinear CTH-Based Adaptive Cruise Controller With Safety and String Stability Guarantees": "2607.24228v1.pdf", "Exact Predictor-Feedback CACC of Heterogeneous Vehicular Platoons With Distinct Actuation Delays": "Exact-Predictor-Feedback-CACC-of-Heterogeneous-Vehicular-Platoons-With-Distinct-Actuation.pdf", "Numerical Investigation of Head-to-Tail String Stability and Performance of Predictor-Based ACC in a Mixed Traffic Scenario": "Numerical-Investigation-of-Head-to-Tail-String-Stability-and-Performance-of-Predictor-Based.pdf", "On Compensation of Distinct Input Delays in Heterogeneous Vehicular Platoons via Exact Predictor-Feedback CACC": "1-s2.0-S2405896325013990-main.pdf", "Machine Learning-Based Modeling and Analysis of Surface Cover Impacts on Hydrological Parameters Influencing Urban Runoff": "1-s2.0-S2590123026006201-main.pdf", "Predictor-Based CACC Design for Heterogeneous Vehicles With Distinct Input Delays": "Predictor-Based_CACC_Design_for_Heterogeneous_Vehicles_With_Distinct_Input_Delays.pdf", "Simultaneous Compensation of Actuation and Communication Delays for Heterogeneous Platoons via Predictor-Feedback CACC With Integral Action": "Simultaneous-Compensation-of-Actuation-and-Communication-Delays-for-Heterogeneous-Platoons.pdf", "Robustness of String Stability of Linear Predictor-Feedback CACC to Communication Delay": "Robustness-of-String-Stability-of-Linear-Predictor-Feedback-CACC-to-Communication-Delay.pdf", "Comparison of DEEP-LSTM and MLP Models in Estimation of Evaporation Pan for Arid Regions": "10.22115_scce.2023.367948.1550.pdf", "Optimization of Battery Life and State of the Charge in an Electric Motorcycle Braking System": "samii2021.pdf"};
+const PDF_FILES = {"Predictor-Feedback CACC for Vehicular Platoons With Actuation and Communication Delays Based on a Multiple-Predecessor-Following CTH Nominal Strategy": "2604.05667v1.pdf", "A Nonlinear CTH-Based Adaptive Cruise Controller With Safety and String Stability Guarantees": "2607.24228v1.pdf", "Exact Predictor-Feedback CACC of Heterogeneous Vehicular Platoons With Distinct Actuation Delays": "Exact-Predictor-Feedback-CACC-of-Heterogeneous-Vehicular-Platoons-With-Distinct-Actuation.pdf", "Numerical Investigation of Head-to-Tail String Stability and Performance of Predictor-Based ACC in a Mixed Traffic Scenario": "Numerical-Investigation-of-Head-to-Tail-String-Stability-and-Performance-of-Predictor-Based.pdf", "Predictor-Based CACC Design for Heterogeneous Vehicles With Distinct Input Delays": "Predictor-Based_CACC_Design_for_Heterogeneous_Vehicles_With_Distinct_Input_Delays.pdf", "Simultaneous Compensation of Actuation and Communication Delays for Heterogeneous Platoons via Predictor-Feedback CACC With Integral Action|IEEE Transactions on Intelligent Vehicles": "Simultaneous-Compensation-of-Actuation-and-Communication-Delays-for-Heterogeneous-Platoons.pdf", "Simultaneous Compensation of Actuation and Communication Delays for Heterogeneous Platoons via Predictor-Feedback CACC With Integral Action|European Control Conference": "ECC24-Paper_Samii_Bekiaris-Liberis.pdf", "Robustness of String Stability of Linear Predictor-Feedback CACC to Communication Delay": "Robustness-of-String-Stability-of-Linear-Predictor-Feedback-CACC-to-Communication-Delay.pdf", "Optimization of Battery Life and State of the Charge in an Electric Motorcycle Braking System": "samii2021.pdf", "Experimental Implementation and Validation of Predictor-Based CACC for Vehicular Platoons With Distinct Actuation Delays": "Experimental_Implementation_and_Validation_of_Predictor-Based_CACC_for_Vehicular_Platoons_With_Distinct_Actuation_Delays.pdf", "Comparison of PI and Adaptive Fuzzy Controllers for Position Tracking of Servo System With Variable Loaded BLDC Motor": "Comparison_of_PI_and_Adaptive_Fuzzy_Controllers_for_Position_Tracking_of_Servo_System_with_Variable_Loaded_BLDC_Motor.pdf"};
   function addPdfAction(container, publication){
-    const file=PDF_FILES[publication.title];
+    const file=PDF_FILES[publication.title+'|'+(publication.venue.includes('European Control Conference')?'European Control Conference':'IEEE Transactions on Intelligent Vehicles')]||PDF_FILES[publication.title];
     if(!file) return;
     const link=el('a','pdf-placeholder','▣ PDF');
     link.href=file; link.target='_blank'; link.rel='noopener';
@@ -422,7 +421,7 @@ const PDF_FILES = {"Predictor-Feedback CACC for Vehicular Platoons With Actuatio
   search.addEventListener('input',render);
   filters.forEach(b=>b.addEventListener('click',()=>{filter=b.dataset.filter;filters.forEach(f=>f.classList.toggle('active',f===b));render()}));
   render();
-  const selectedIndices=[2,3,5,8,10,14,15];
+  const selectedIndices=[2, 3, 4, 6, 10, 14, 15];
   const selected=document.getElementById('selected-list');
   selectedIndices.forEach((n)=>{
     const p=pubs[n-1]; if(!p)return;
