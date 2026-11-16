@@ -191,9 +191,9 @@
     "scholar": ""
   },
   {
-    "title": "Predictor-Feedback CACC for Vehicular Platoons With Actuation and Communication Delays Based on a Multiple-Predecessor-Following CTH Nominal Strategy",
-    "authors": "A. Samii, D. Angelopoulos, N. Bekiaris-Liberis",
-    "venue": "IEEE Transactions on Intelligent Transportation Systems",
+    "title": "A Nonlinear CTH-Based Adaptive Cruise Controller With Safety and String Stability Guarantees",
+    "authors": "D. Theodosis, A. Samii, N. Bekiaris-Liberis",
+    "venue": "Transportation Research Part B: Methodological",
     "year": 2026,
     "type": "Journal",
     "status": "Under review",
@@ -201,9 +201,9 @@
     "scholar": ""
   },
   {
-    "title": "A Nonlinear CTH-Based Adaptive Cruise Controller With Safety and String Stability Guarantees",
-    "authors": "D. Theodosis, A. Samii, N. Bekiaris-Liberis",
-    "venue": "Transportation Research Part B: Methodological",
+    "title": "Predictor-Feedback CACC for Vehicular Platoons With Actuation and Communication Delays Based on a Multiple-Predecessor-Following CTH Nominal Strategy",
+    "authors": "A. Samii, D. Angelopoulos, N. Bekiaris-Liberis",
+    "venue": "IEEE Transactions on Intelligent Transportation Systems",
     "year": 2026,
     "type": "Journal",
     "status": "Under review",
@@ -400,7 +400,7 @@ const PDF_FILES = {"Predictor-Feedback CACC for Vehicular Platoons With Actuatio
   function el(tag, cls, content) {const e=document.createElement(tag);if(cls)e.className=cls;if(content!==undefined)e.textContent=content;return e;}
   function render(){
     const q=search.value.trim().toLowerCase();
-    const visible=pubs.filter(p=>(filter==='All'||p.type===filter)&&[p.title,p.authors,p.venue,String(p.year)].join(' ').toLowerCase().includes(q)).sort((a,b)=>b.year-a.year||a.title.localeCompare(b.title));
+    const visible=pubs.filter(p=>(filter==='All'||p.type===filter)&&[p.title,p.authors,p.venue,String(p.year)].join(' ').toLowerCase().includes(q)).sort((a,b)=>b.year-a.year||pubs.indexOf(a)-pubs.indexOf(b));
     pubList.replaceChildren();
     document.getElementById('pub-empty').hidden=visible.length>0;
     const frag=document.createDocumentFragment();
@@ -421,7 +421,7 @@ const PDF_FILES = {"Predictor-Feedback CACC for Vehicular Platoons With Actuatio
   search.addEventListener('input',render);
   filters.forEach(b=>b.addEventListener('click',()=>{filter=b.dataset.filter;filters.forEach(f=>f.classList.toggle('active',f===b));render()}));
   render();
-  const selectedIndices=[2, 3, 4, 6, 10, 14, 15];
+  const selectedIndices=[2,3,4,6,10,14,15];
   const selected=document.getElementById('selected-list');
   selectedIndices.forEach((n)=>{
     const p=pubs[n-1]; if(!p)return;
